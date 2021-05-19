@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] float speed = 5;
 
+    public Animator animator;
 
     [SerializeField] float jumpForce = 500f;
     [SerializeField] int jumpLength = 10;
@@ -37,6 +38,20 @@ public class Player : MonoBehaviour
         }
 
         rb = GetComponent<Rigidbody2D>();
+
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            Attack();
+        }
+
+        if (Input.GetAxis("Horizontal") >= 0.01f)
+        {
+            transform.localScale = new Vector3(2.4f, 2.5f, 1f);
+        }
+        else if (Input.GetAxis("Horizontal") <= -0.01f)
+        {
+            transform.localScale = new Vector3(-2.4f, 2.5f, 1f);
+        }
     }
 
 
@@ -78,6 +93,15 @@ public class Player : MonoBehaviour
         }
 
     }
+
+    void Attack()
+    {
+        // play animation
+        animator.SetTrigger("Attack");
+        // check if there are enemies in range
+        // Damage enemies
+    }
+
 
     void OnCollisionStay2D(Collision2D col)
     {
