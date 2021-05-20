@@ -46,11 +46,11 @@ public class Player : MonoBehaviour
 
         if (Input.GetAxis("Horizontal") >= 0.01f)
         {
-            transform.localScale = new Vector3(2.4f, 2.5f, 1f);
+            transform.localScale = new Vector3(1f, 1f, 1f);
         }
         else if (Input.GetAxis("Horizontal") <= -0.01f)
         {
-            transform.localScale = new Vector3(-2.4f, 2.5f, 1f);
+            transform.localScale = new Vector3(-1f, 1f, 1f);
         }
     }
 

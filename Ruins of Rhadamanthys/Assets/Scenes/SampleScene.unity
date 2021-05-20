@@ -142,7 +142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AssetsPPU: 100
   m_RefResolutionX: 320
-  m_RefResolutionY: 180
+  m_RefResolutionY: 192
   m_UpscaleRT: 0
   m_PixelSnapping: 1
   m_CropFrameX: 0
@@ -468,6 +468,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9100000, guid: a6f6649fb7359fb479357449ac2fe83c, type: 2}
     - target: {fileID: 519420031, guid: 0b7a5189caa70f543ac5b590c885dcef, type: 3}
+      propertyPath: orthographic size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 519420031, guid: 0b7a5189caa70f543ac5b590c885dcef, type: 3}
       propertyPath: m_BackGroundColor.b
       value: 0
       objectReference: {fileID: 0}
@@ -478,6 +482,10 @@ PrefabInstance:
     - target: {fileID: 519420031, guid: 0b7a5189caa70f543ac5b590c885dcef, type: 3}
       propertyPath: m_BackGroundColor.r
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 519420032, guid: 0b7a5189caa70f543ac5b590c885dcef, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2624635337661601552, guid: 0b7a5189caa70f543ac5b590c885dcef, type: 3}
       propertyPath: m_Size.x
@@ -505,11 +513,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2624635337661601557, guid: 0b7a5189caa70f543ac5b590c885dcef, type: 3}
       propertyPath: m_LocalScale.x
-      value: -2.4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2624635337661601557, guid: 0b7a5189caa70f543ac5b590c885dcef, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2624635337661601557, guid: 0b7a5189caa70f543ac5b590c885dcef, type: 3}
       propertyPath: m_LocalPosition.x
