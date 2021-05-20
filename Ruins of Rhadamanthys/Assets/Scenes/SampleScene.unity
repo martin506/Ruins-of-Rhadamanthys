@@ -292,6 +292,22 @@ PrefabInstance:
       propertyPath: m_BackGroundColor.r
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2624635337661601552, guid: 0b7a5189caa70f543ac5b590c885dcef, type: 3}
+      propertyPath: m_Size.x
+      value: 0.18170595
+      objectReference: {fileID: 0}
+    - target: {fileID: 2624635337661601552, guid: 0b7a5189caa70f543ac5b590c885dcef, type: 3}
+      propertyPath: m_Size.y
+      value: 0.43776673
+      objectReference: {fileID: 0}
+    - target: {fileID: 2624635337661601552, guid: 0b7a5189caa70f543ac5b590c885dcef, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.010577228
+      objectReference: {fileID: 0}
+    - target: {fileID: 2624635337661601552, guid: 0b7a5189caa70f543ac5b590c885dcef, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.004529953
+      objectReference: {fileID: 0}
     - target: {fileID: 2624635337661601553, guid: 0b7a5189caa70f543ac5b590c885dcef, type: 3}
       propertyPath: m_Name
       value: Player
@@ -310,11 +326,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2624635337661601557, guid: 0b7a5189caa70f543ac5b590c885dcef, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.5685
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2624635337661601557, guid: 0b7a5189caa70f543ac5b590c885dcef, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.69
+      value: -3.5
       objectReference: {fileID: 0}
     - target: {fileID: 2624635337661601557, guid: 0b7a5189caa70f543ac5b590c885dcef, type: 3}
       propertyPath: m_LocalPosition.z
