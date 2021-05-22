@@ -27,7 +27,6 @@ public class enemy : MonoBehaviour
 
     private void Die()
     {
-        Debug.Log("Enemy killed: " + gameObject.name);
 
         // play death animation
         animator.SetBool("isDead", true);

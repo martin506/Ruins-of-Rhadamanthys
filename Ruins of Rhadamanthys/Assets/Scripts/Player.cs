@@ -15,11 +15,17 @@ public class Player : MonoBehaviour
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
     public int attackDamage = 20;
+
+    [Header("Atack cd")]
+    public float attackRate = 2f;
+    public float nextAttackTime = 0f;
     
     [Header("Jump")]
     [SerializeField] float jumpForce = 500f;
     [SerializeField] int jumpLength = 10;
     [SerializeField] int jumpWait = 10;
+    public float jumpRate = 1f;
+    public float nextJumpTime;
 
     float constJumpForce;
     int constJumpLength;
@@ -49,9 +55,13 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         // sword
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Time.time >= nextAttackTime)
         {
-            Attack();
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                Attack();
+                nextAttackTime = Time.time + 1 / attackRate;
+            }
         }
 
 
