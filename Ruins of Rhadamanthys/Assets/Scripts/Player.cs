@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     public Transform attackPoint;
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
+    public int attackDamage = 20;
     
     [Header("Jump")]
     [SerializeField] float jumpForce = 500f;
@@ -113,7 +114,8 @@ public class Player : MonoBehaviour
         // Damage enemies
         foreach (Collider2D enemy in hitEnemies)
         {
-            Debug.Log("we hit" + enemy.name);
+            enemy.GetComponent<enemy>().takeDamage(attackDamage);
+            Debug.Log("we hit: " + enemy.name);
         }
     }
 

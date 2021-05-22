@@ -520,6 +520,7 @@ GameObject:
   - component: {fileID: 1952941330}
   - component: {fileID: 1952941329}
   - component: {fileID: 1952941328}
+  - component: {fileID: 1952941332}
   m_Layer: 6
   m_Name: BOT
   m_TagString: Untagged
@@ -639,6 +640,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1952941332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952941327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35ea1b92e0bb4bc4c8f0733bba61b388, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
 --- !u!1001 &2624635338815793105
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -652,7 +666,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2624635337661601555, guid: 0b7a5189caa70f543ac5b590c885dcef, type: 3}
       propertyPath: m_Constraints
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2624635337661601557, guid: 0b7a5189caa70f543ac5b590c885dcef, type: 3}
       propertyPath: m_RootOrder
