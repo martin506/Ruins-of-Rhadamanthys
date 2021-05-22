@@ -4,10 +4,18 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [Header("movement")]
     [SerializeField] float speed = 5;
 
+    [Header("animations")]
     public Animator animator;
 
+    [Header("Attack")]
+    public Transform attackPoint;
+    public float attackRange = 0.5f;
+    public LayerMask enemyLayers;
+    
+    [Header("Jump")]
     [SerializeField] float jumpForce = 500f;
     [SerializeField] int jumpLength = 10;
     [SerializeField] int jumpWait = 10;
@@ -39,11 +47,14 @@ public class Player : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
 
+        // sword
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Attack();
         }
 
+
+        // Apsisuko pacanas
         if (Input.GetAxis("Horizontal") >= 0.01f)
         {
             transform.localScale = new Vector3(1f, 1f, 1f);
@@ -63,9 +74,6 @@ public class Player : MonoBehaviour
         float currentY = transform.position.y;
         float currentX = transform.position.x;
         transform.position = new Vector2(currentX - Input.GetAxis("Horizontal") * Time.deltaTime * speed * -1, currentY);
-
-
-        
 
         if (jump && jumpWait <= 0)
         {
@@ -98,8 +106,23 @@ public class Player : MonoBehaviour
     {
         // play animation
         animator.SetTrigger("Attack");
+
         // check if there are enemies in range
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+
         // Damage enemies
+        foreach (Collider2D enemy in hitEnemies)
+        {
+            Debug.Log("we hit" + enemy.name);
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (attackPoint == null)
+            return;
+
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 
 
