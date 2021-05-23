@@ -15,11 +15,13 @@ public class Player : MonoBehaviour
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
     public int attackDamage = 20;
-    
+
     [Header("Jump")]
-    [SerializeField] float jumpForce = 500f;
-    [SerializeField] int jumpLength = 10;
-    [SerializeField] int jumpWait = 10;
+    [SerializeField] float jumpForce = 5f;
+    public float fallMultiplier = 2.5f;
+    public float lowJumpMultiplier = 2f;
+    bool jump = false;
+    bool touchGround = false;
 
     float constJumpForce;
     int constJumpLength;
@@ -28,25 +30,25 @@ public class Player : MonoBehaviour
     void Start()
     {
         constJumpForce = jumpForce;
-        constJumpLength = jumpLength;
-        constJumpWait = jumpWait;
 
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
 
-    bool jumpB = false;
+
     Rigidbody2D rb;
+
 
     void Update()
     {
+
         if (Input.GetButtonDown("Jump"))
         {
-            jumpB = true;
-            //Debug.Log("a");
+            jump = true;
         }
 
-        rb = GetComponent<Rigidbody2D>();
+
 
         // sword
         if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -68,7 +70,7 @@ public class Player : MonoBehaviour
 
 
 
-    bool jump = false;
+
 
     private void FixedUpdate()
     {
@@ -76,30 +78,24 @@ public class Player : MonoBehaviour
         float currentX = transform.position.x;
         transform.position = new Vector2(currentX - Input.GetAxis("Horizontal") * Time.deltaTime * speed * -1, currentY);
 
-        if (jump && jumpWait <= 0)
-        {
-            jumpB = false;
-            
-            if (jumpLength > 0)
-            {
-                rb.velocity = new Vector2(0.0f, 0.0f);
-                Physics2D.gravity = new Vector2(0, 0.0f);
-                rb.AddForce(new Vector2(0f, jumpForce));
-                
-                jumpLength--;
-            } else
-            {
-                jumpLength = constJumpLength;
-                jumpWait = constJumpWait;
-                jump = false;
-                jumpB = false;
-            }
+        //OnCollisionStay2D();
 
-        } else
+        if (jump && touchGround)
         {
-            Physics2D.gravity = new Vector2(0, -9.8f);
-            jumpWait--;
+            rb.velocity = Vector2.up * jumpForce;
         }
+        jump = false;
+        //touchGround = false;
+
+        if (rb.velocity.y < 0)
+        {
+            rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+        }
+        else if (rb.velocity.y > 0 && !Input.GetButton("Jump"))
+        {
+            rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+        }
+
 
     }
 
@@ -128,18 +124,30 @@ public class Player : MonoBehaviour
     }
 
 
-    void OnCollisionStay2D(Collision2D col)
+    /*void OnCollisionStay2D(Collision2D col)
     {
-
         if (col.gameObject.tag == "Ground")
         {
-
-            if (jumpB)
-            {
-                jump = true;
-            }
-
+            Debug.Log("zeme");
+            touchGround = true;
         }
 
+    }*/
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Ground")
+        {
+            touchGround = true;
+        }
+
+    }
+
+    void OnCollisionExit2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Ground")
+        {
+            touchGround = false;
+        }
     }
 }
