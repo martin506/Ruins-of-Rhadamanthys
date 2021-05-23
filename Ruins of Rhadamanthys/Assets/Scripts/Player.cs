@@ -16,6 +16,10 @@ public class Player : MonoBehaviour
     public LayerMask enemyLayers;
     public int attackDamage = 20;
 
+    [Header("Atack cd")]
+    public float attackRate = 2f;
+    public float nextAttackTime = 0f;
+    
     [Header("Jump")]
     [SerializeField] float jumpForce = 5f;
     public float fallMultiplier = 2.5f;
@@ -51,9 +55,13 @@ public class Player : MonoBehaviour
 
 
         // sword
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Time.time >= nextAttackTime)
         {
-            Attack();
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                Attack();
+                nextAttackTime = Time.time + 1 / attackRate;
+            }
         }
 
 

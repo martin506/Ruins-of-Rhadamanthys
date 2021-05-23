@@ -44,7 +44,6 @@ GameObject:
   - component: {fileID: 2624635337661601552}
   - component: {fileID: 7419787493911603801}
   - component: {fileID: 1927422195}
-  - component: {fileID: 1927422196}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -207,16 +206,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1927422196
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2624635337661601553}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 286181c2018e05d4fbc4ee726b0803fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 1927422195}
